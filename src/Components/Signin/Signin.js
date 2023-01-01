@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import React, {Component} from 'react';
+import './Signin.css';
 
 class Signin extends Component {
     constructor(props){
@@ -7,6 +8,7 @@ class Signin extends Component {
         this.state = {
             signInEmail: '',
             signInPassword: '',
+            error: ''
         }
       }
 
@@ -28,6 +30,11 @@ onSubmitSignin = () => {
         })
     }).then(response => response.json())
       .then(data => {
+        if(data.error){
+            console.log('Error ' + data.error);
+            this.setState({error: data.error});
+        }
+
         if(data.email){
             this.props.onRouteChange("Home");
             this.props.loadUser(data);
@@ -38,9 +45,9 @@ onSubmitSignin = () => {
  render(){
     const { onRouteChange } = this.props;
         return (
-            <div>
+            <div >
                 <p href="#0" className="f2 link dim black db pointer tr pa4 i" onClick={() => onRouteChange('Register')}>Register</p>
-                <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+                <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center form">
                 <main className="pa4 black-80">
                     <div className="measure">
                         <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
@@ -65,6 +72,11 @@ onSubmitSignin = () => {
                                 onChange={this.onPasswordChange}
                                 />
                         </div>
+                        { this.state.error.length > 0 ?
+                        <div>
+                            <p className="bar error"> {this.state.error}</p>
+                        </div> : <div></div>
+                        }
                         </fieldset>
                         <div className="">
                         <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" onClick={() => this.onSubmitSignin()}/>
