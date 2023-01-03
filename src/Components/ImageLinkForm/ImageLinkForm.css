@@ -1,6 +1,7 @@
-.form {
+.imglinkform {
     width:700px;
-    background-color: gray;
-    background-image: linear-gradient(transparent 50%, rgba(255,255,255,.5) 50%);
-    background-size: 50px 50px;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+    background-size: 10px 10px;
 }
