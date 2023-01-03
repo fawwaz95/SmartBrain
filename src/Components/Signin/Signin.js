@@ -47,7 +47,7 @@ onSubmitSignin = () => {
     const { onRouteChange } = this.props;
         return (
             <div >
-                <p href="#0" className="f2 link dim black db pointer tr pa4 i" onClick={() => onRouteChange('Register')}>Register</p>
+                <p href="#0" className="f3 link dim white db pointer tr pa4 i" onClick={() => onRouteChange('Register')}>Register</p>
                 <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center signinBox">
                 <main className="pa4 black-80">
                     <div className="measure">
