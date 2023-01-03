@@ -9,6 +9,8 @@ import FaceRecognition from './Components/FaceRecognition/FaceRecognition.js';
 import './App.css';
 import 'tachyons';
 
+const PORT = process.env.PORT || 3000;
+
 const initialState = {
   input: '',
   imageUrl: '',
@@ -49,7 +51,6 @@ class App extends Component{
   }
 
   calculateFaceLocation = (data) => {
-    console.log("What do we have here");
     console.log(data);
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputimage');
@@ -78,7 +79,7 @@ class App extends Component{
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input})
-          fetch('http://localhost:3000/imageurl', {
+          fetch(`http://localhost:${PORT}/imageurl`, {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -87,7 +88,7 @@ class App extends Component{
           }).then(response => response.json())
             .then(response => {
               if(response){
-                fetch('http://localhost:3000/image', {
+                fetch(`http://localhost:${PORT}/image`, {
                   method: 'put',
                   headers: {'Content-Type': 'application/json'},
                   body: JSON.stringify({

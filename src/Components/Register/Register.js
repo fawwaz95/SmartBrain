@@ -1,4 +1,5 @@
 import React, {Component, useState} from 'react';
+const PORT = process.env.PORT || 3000;
 
 class Register extends Component  {
 
@@ -29,7 +30,7 @@ class Register extends Component  {
      
             console.log(this.state.inpEmail);
 
-            fetch('http://localhost:3000/register', {
+            fetch(`http://localhost:${PORT}/register`, {
                 method: 'post',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({
