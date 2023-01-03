@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import React, {Component} from 'react';
 import './Signin.css';
+const PORT = process.env.PORT || 3000;
 
 class Signin extends Component {
     constructor(props){
@@ -21,7 +22,7 @@ onPasswordChange = (event) => {
 }
 
 onSubmitSignin = () => {
-    fetch('http://localhost:3000/signin', {
+    fetch(`http://localhost:${PORT}/signin`, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -47,7 +48,7 @@ onSubmitSignin = () => {
         return (
             <div >
                 <p href="#0" className="f2 link dim black db pointer tr pa4 i" onClick={() => onRouteChange('Register')}>Register</p>
-                <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center form">
+                <article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center signinBox">
                 <main className="pa4 black-80">
                     <div className="measure">
                         <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
