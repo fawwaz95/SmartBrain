@@ -3,8 +3,7 @@ import React, {Component} from 'react';
 import './Signin.css';
 
 const PORT = process.env.PORT || 3000;
-const localHost = 'http://localhost:';
-const onlineServer = 'https://smartbrainserver.onrender.com';
+const url = process.env.URL || `http://localhost:${PORT}`;
 
 class Signin extends Component {
     constructor(props){
@@ -25,7 +24,7 @@ onPasswordChange = (event) => {
 }
 
 onSubmitSignin = () => {
-    fetch(`${onlineServer}/signin`, {
+    fetch(`${url}/signin`, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
