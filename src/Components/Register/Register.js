@@ -1,5 +1,7 @@
 import React, {Component, useState} from 'react';
 const PORT = process.env.PORT || 3000;
+const localHost = 'http://localhost:';
+const onlineServer = 'https://smartbrainserver.onrender.com';
 
 class Register extends Component  {
 
@@ -27,9 +29,8 @@ class Register extends Component  {
 
 
     onSignin = () => {      
-            console.log(this.state.inpEmail);
-
-            fetch(`http://localhost:${PORT}/register`, {
+            //`http://localhost:${PORT}/register`
+            fetch(`${onlineServer}/register`, {
                 method: 'post',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({
