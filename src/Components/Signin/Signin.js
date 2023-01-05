@@ -37,15 +37,7 @@ onSubmitSignin = () => {
            console.log('testing txt' + txt);
         }
           
-        fr.readAsText('public/netlify-envVars.txt');
-
-        reader.addEventListener('load', (e) => {
-            const data = e.target.result;
-            console.log('the text file......');
-            console.log(data)
-        });
-
-        //reader.readAsText(e.target.files[0])
+        reader.readAsText('public/netlify-envVars.txt');
 
     
     fetch(`${URL}/signin`, {
