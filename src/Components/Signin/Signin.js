@@ -29,12 +29,16 @@ onSubmitSignin = () => {
     console.log(process.env);
 
 
-        const reader = new FileReader('public/netlify-envVars.txt')
-        reader.onload = async (e) => { 
-          const text = (e.target.result)
-          console.log('the text file......');
-          console.log(text)
-        };
+        const reader = new FileReader('public/netlify-envVars.txt');
+        reader.readAsDataURL('public/netlify-envVars.txt');
+        console.log('Reading file........');
+
+        reader.addEventListener('load', (e) => {
+            const data = e.target.result;
+            console.log('the text file......');
+            console.log(data)
+        }
+
         //reader.readAsText(e.target.files[0])
 
     
