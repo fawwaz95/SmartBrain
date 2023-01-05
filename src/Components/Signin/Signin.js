@@ -25,9 +25,18 @@ onPasswordChange = (event) => {
 
 onSubmitSignin = () => {
     console.log('Global url exist ? ' + process.env.URL_APP);
-    console.log('What is being assigned to url ? ' + URL);
     console.log('whats in process.env ' );
     console.log(process.env);
+
+
+        const reader = new FileReader('public/netlify-envVars.txt')
+        reader.onload = async (e) => { 
+          const text = (e.target.result)
+          console.log('the text file......');
+          console.log(text)
+        };
+        //reader.readAsText(e.target.files[0])
+
     
     fetch(`${URL}/signin`, {
         method: 'post',
