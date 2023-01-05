@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import './Signin.css';
 
 const PORT = process.env.PORT || 3000;
-const url = process.env.URL || `http://localhost:${PORT}`;
+const URL = process.env.URL || `http://localhost:${PORT}`;
 
 class Signin extends Component {
     constructor(props){
@@ -24,7 +24,7 @@ onPasswordChange = (event) => {
 }
 
 onSubmitSignin = () => {
-    fetch(`${url}/signin`, {
+    fetch(`${URL}/signin`, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

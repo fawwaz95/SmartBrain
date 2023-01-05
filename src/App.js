@@ -10,7 +10,7 @@ import './App.css';
 import 'tachyons';
 
 const PORT = process.env.PORT || 3000;
-const url = process.env.URL || `http://localhost:${PORT}`;
+const URL = process.env.URL || `http://localhost:${PORT}`;
 
 const initialState = {
   input: '',
@@ -81,7 +81,7 @@ class App extends Component{
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input})
         //`http://localhost:${PORT}/imageurl`
-          fetch(`${url}/imageurl`, {
+          fetch(`${URL}/imageurl`, {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -90,7 +90,7 @@ class App extends Component{
           }).then(response => response.json())
             .then(response => {
               if(response){
-                fetch(`${url}/image`, {
+                fetch(`${URL}/image`, {
                   method: 'put',
                   headers: {'Content-Type': 'application/json'},
                   body: JSON.stringify({
