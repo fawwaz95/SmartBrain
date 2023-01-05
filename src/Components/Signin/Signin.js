@@ -4,6 +4,7 @@ import './Signin.css';
 
 const PORT = process.env.PORT || 3000;
 const URL = process.env.URL_APP || `http://localhost:${PORT}`;
+const url2 = process.env.REACT_APP_URL || 'man oh man';
 
 class Signin extends Component {
     constructor(props){
@@ -28,18 +29,8 @@ onSubmitSignin = () => {
     console.log('whats in process.env ' );
     console.log(process.env);
 
+    console.log('The react_app_url ' + url2);
 
-        const reader = new FileReader();
-        console.log('Reading file........');
-
-        reader.onload=function(txt){
-           console.log('The textfile result' + reader.result);
-           console.log('testing txt' + txt);
-        }
-          
-        reader.readAsText('public/netlify-envVars.txt');
-
-    
     fetch(`${URL}/signin`, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
