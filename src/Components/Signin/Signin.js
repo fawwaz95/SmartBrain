@@ -30,8 +30,14 @@ onSubmitSignin = () => {
 
 
         const reader = new FileReader();
-        reader.readAsDataURL('public/netlify-envVars.txt');
         console.log('Reading file........');
+
+        reader.onload=function(txt){
+           console.log('The textfile result' + reader.result);
+           console.log('testing txt' + txt);
+        }
+          
+        fr.readAsText('public/netlify-envVars.txt');
 
         reader.addEventListener('load', (e) => {
             const data = e.target.result;
