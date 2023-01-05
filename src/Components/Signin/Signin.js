@@ -37,7 +37,7 @@ onSubmitSignin = () => {
             const data = e.target.result;
             console.log('the text file......');
             console.log(data)
-        }
+        });
 
         //reader.readAsText(e.target.files[0])
 
