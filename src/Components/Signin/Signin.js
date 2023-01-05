@@ -24,6 +24,11 @@ onPasswordChange = (event) => {
 }
 
 onSubmitSignin = () => {
+    console.log('Global url exist ? ' + process.env.URL_APP);
+    console.log('What is being assigned to url ? ' + URL);
+    console.log('whats in process.env ' );
+    console.log(process.env);
+    
     fetch(`${URL}/signin`, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
