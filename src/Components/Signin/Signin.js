@@ -29,7 +29,7 @@ onSubmitSignin = () => {
     console.log(process.env);
 
 
-        const reader = new FileReader('public/netlify-envVars.txt');
+        const reader = new FileReader();
         reader.readAsDataURL('public/netlify-envVars.txt');
         console.log('Reading file........');
 
