@@ -10,7 +10,7 @@ import './App.css';
 import 'tachyons';
 
 const PORT = process.env.PORT || 3000;
-const URL = process.env.URL || `http://localhost:${PORT}`;
+const URL = process.env.URL_APP || `http://localhost:${PORT}`;
 
 const initialState = {
   input: '',

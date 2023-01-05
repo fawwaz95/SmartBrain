@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import './Signin.css';
 
 const PORT = process.env.PORT || 3000;
-const URL = process.env.URL || `http://localhost:${PORT}`;
+const URL = process.env.URL_APP || `http://localhost:${PORT}`;
 
 class Signin extends Component {
     constructor(props){
