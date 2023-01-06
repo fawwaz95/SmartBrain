@@ -1,6 +1,6 @@
 import React, {Component, useState} from 'react';
 const PORT = process.env.PORT || 3000;
-const URL = process.env.URL_APP || `http://localhost:${PORT}`;
+const REACT_APP_URL = process.env.REACT_APP_URL || `http://localhost:${PORT}`;
 
 class Register extends Component  {
 
@@ -29,7 +29,7 @@ class Register extends Component  {
 
     onSignin = () => {      
             //`http://localhost:${PORT}/register`
-            fetch(`${URL}/register`, {
+            fetch(`${REACT_APP_URL}/register`, {
                 method: 'post',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({

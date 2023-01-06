@@ -4,7 +4,6 @@ import './Signin.css';
 
 const PORT = process.env.PORT || 3000;
 const REACT_APP_URL = process.env.REACT_APP_URL || `http://localhost:${PORT}`;
-const url2 =  process.env.URL_APP || 'man oh man';
 
 class Signin extends Component {
     constructor(props){
@@ -25,14 +24,7 @@ onPasswordChange = (event) => {
 }
 
 onSubmitSignin = () => {
-    
-    console.log('whats in process.env ' );
-    console.log(process.env);
-
-    console.log('Global url exist ? ' + url2);
-    console.log('The react_app_url ' + REACT_APP_URL);
-
-    fetch(`${URL}/signin`, {
+    fetch(`${REACT_APP_URL}/signin`, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
