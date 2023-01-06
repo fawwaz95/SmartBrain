@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import './Signin.css';
 
 const PORT = process.env.PORT || 3000;
-const URL = process.env.URL_APP || `http://localhost:${PORT}`;
-const url2 = process.env.REACT_APP_URL || 'man oh man';
+const REACT_APP_URL = process.env.REACT_APP_URL || `http://localhost:${PORT}`;
+const url2 =  process.env.URL_APP || 'man oh man';
 
 class Signin extends Component {
     constructor(props){
@@ -25,11 +25,12 @@ onPasswordChange = (event) => {
 }
 
 onSubmitSignin = () => {
-    console.log('Global url exist ? ' + process.env.URL_APP);
+    
     console.log('whats in process.env ' );
     console.log(process.env);
 
-    console.log('The react_app_url ' + url2);
+    console.log('Global url exist ? ' + url2);
+    console.log('The react_app_url ' + REACT_APP_URL);
 
     fetch(`${URL}/signin`, {
         method: 'post',
